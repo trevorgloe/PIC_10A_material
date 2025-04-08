@@ -31,7 +31,29 @@ int main() {
     int integer = 1;
     double number = 1.0;
     std::cout << "the integer 1 is of size " << sizeof(integer) << "\n";
-    std::cout << "the float 1.0 is size " << sizeof(number) << "\n";
+    std::cout << "the double 1.0 is size " << sizeof(number) << "\n";
+
+    // when the magnitude of numbers gets really small, the numerical precision, comes into play
+    float a = 1.0 + 0.000000000000000001;
+    float b = (a - 1.0) * 10000000000000000;
+    std::cout << b << "\n";
+    std::cout << a << "\n";
+
+    // another integer operator: increment
+    int i = 0;
+    std::cout << i << "\n";
+    i++; // shortcut for i += 1
+    std::cout << i << "\n";
+    ++i;
+    std::cout << i << "\n";
+    // WARNING: using ++ twice in the same expression can lead to undefined behavior
+    //
+    // ++i++
+    i += 2;
+    // in general any arithmetic operation can be put before = to make it reasign the value
+    // i *= 2
+    // i -= 2
+    // i %= 2
     return 0;
 }
 
