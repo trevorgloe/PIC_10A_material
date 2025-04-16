@@ -40,7 +40,15 @@ int main() {
     cin >> i;
     cout << "I got this integer " << i << "\n";
     cout << cin.fail() << "\n"; // WARNING: If cin is in a fail state NONE of the functions will do what you expect, so stay out of this state
-
+    
+    // If we want to get the input buffer including the whitespace, that will be the getline() function
+    // this will take everything in the buffer up until \n (the enter key)
+    // NOW, because we used cin before, getline might see an \n and freak out, so we gotta put an ignore
+    cin.ignore();
+    string s;
+    cout << "Enter something for the getline() function to eat" << "\n";
+    getline(cin, s);
+    cout << "You said " << s << "\n";
     return 0;
 }
 
