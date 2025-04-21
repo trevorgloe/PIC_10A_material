@@ -21,5 +21,16 @@ int main() {
     cout << "What about the second?" << "\n";
     cin >> veggie2;
     cout << "The two veggies are " << veggie1 << veggie2 << "\n";
+
+    // buffer: a temporary place for data
+    // cin: takes the stuff in the input buffer until it hits a special character
+    // getline(): takes the stuff in the input buffer until it hits \n
+    
+    // we can change the stopping point for cin but setting the variable it writes to 
+    int i;
+    cout << "write some stuff" << "\n";
+    cin >> i;
+    cout << "I got this integer " << i << "\n";
+    cout << cin.fail() << "\n"; // WARNING: cin and getline will NOT behave as expected if cin is in an fail state
     return 0;
 }
