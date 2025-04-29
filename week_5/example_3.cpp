@@ -11,7 +11,7 @@ int main() {
     if ( j < k ) {
         int i = j;
         j = k;
-        k = i;
+        k = i; 
     }
 
     cout << i << ' ' << j << ' ' << k << endl;
