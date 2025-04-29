@@ -22,7 +22,7 @@ int main() {
     for (int i = 1;i <= n-2; i++) {
         // we need to draw 2 stars
         // the first star should be n-i-3 spaces out
-        for (int k=0; k < n-i-3; k++) {
+        for (int k=0; k < n-i-1; k++) {
             cout << " ";
         }
         cout << "*";
