@@ -1,6 +1,7 @@
 // what is the output of the following code
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
@@ -15,6 +16,8 @@ int main() {
     }
 
     cout << i << ' ' << j << ' ' << k << endl;
-
+    
+    string a = "thing";
+    string b = a;
     return 0;
 }

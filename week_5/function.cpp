@@ -13,6 +13,7 @@ This function takes the max of 2 ints
 */
 int my_max(int a, int b) {
     // take the maximum of 2 ints
+    // a += other_int;
     if (a > b) {
         return a;
     } else {
@@ -24,6 +25,7 @@ int main() {
     // call max function
     int a = 2;
     int b = 10;
+    int other_int = 1;
     int c = my_max(a, b);
     cout << c << "\n";
     {
