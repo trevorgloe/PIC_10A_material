@@ -1,0 +1,150 @@
+Sally Ride ; Orange, Cherry, price: 4.98, 12:44
+Nour El-Sayed; Orange, Orange, Grapes, price: 5.97, 15:20
+Olivia Chen; Orange, Orange, price: 2.98, 14:36
+Tomasz Kowalski; Apple, price: 1.99, 10:16
+Natalie Brooks ; Pear, price: 3.49, 15:52
+Amelia Hart; Cherry, Mango, price: 7.78, 13:27
+Daniel Svensson ; Mango, Pear, price: 7.78, 15:19
+Owen McCarthy; Cherry, Mango, Orange, price: 9.27, 10:50
+Mei Ling Zhao ; Orange, Orange, Pear, Pear, price: 9.96, 16:49
+Lucia Fernandez; Mango, price: 4.29, 16:23
+Daniel Svensson ; Orange, Grapes, price: 4.48, 11:12
+Will Toledo; Pear, Cherry, Cherry, Apple, Mango, price: 16.75, 16:52
+Saskia van Dijk; Mango, Cherry, Grapes, price: 10.77, 07:14
+Diego Morales ; Orange, Cherry, Mango, Apple, Mango, price: 15.55, 14:04
+Owen McCarthy; Cherry, Orange, price: 4.98, 15:27
+Amelia Hart; Apple, Pear, Apple, Grapes, price: 10.46, 16:38
+Tomasz Kowalski; Pear, Pear, Grapes, price: 9.97, 13:29
+Keiko Tanaka ; Orange, Mango, Cherry, price: 9.27, 13:54
+Malik Johnson; Grapes, Mango, Orange, Orange, Grapes, price: 13.25, 16:46
+Tomasz Kowalski; Orange, Apple, Cherry, Orange, Cherry, price: 11.95, 15:39
+Aisha Nasser; Orange, Apple, price: 3.48, 13:40
+Owen McCarthy; Pear, Apple, price: 5.48, 15:11
+Chloe Nguyen; Mango, Grapes, Orange, price: 8.77, 10:14
+Yusuf Demir ; Mango, Cherry, Orange, Grapes, price: 12.26, 11:22
+Liam Gallagher ; Orange, Mango, price: 5.78, 14:06
+Alexander Novak ; Grapes, Cherry, Cherry, Pear, price: 13.46, 16:46
+Chloe Nguyen; Cherry, Grapes, Orange, price: 7.97, 17:18
+Marcus Albright; Mango, Orange, Mango, price: 10.07, 08:13
+Will Toledo; Pear, Apple, Orange, Mango, Apple, price: 13.25, 10:46
+Arjun Mehta; Mango, Cherry, price: 7.78, 16:01
+Olivia Chen; Pear, Grapes, Grapes, price: 9.47, 14:57
+Viktor Ivanov; Grapes, Mango, Cherry, Orange, price: 12.26, 14:17
+Liam Gallagher ; Orange, price: 1.49, 15:45
+Diego Morales ; Orange, price: 1.49, 13:29
+Leila Haddad; Orange, Mango, price: 5.78, 14:47
+Chloe Nguyen; Pear, Mango, Pear, Mango, price: 15.56, 16:38
+Naomi Goldstein; Pear, Orange, price: 4.98, 09:04
+Amelia Hart; Grapes, Cherry, price: 6.48, 12:13
+Hana Kobayashi; Orange, Grapes, Pear, Orange, Mango, price: 13.75, 10:38
+Chloe Nguyen; Apple, Cherry, Apple, Pear, Mango, price: 15.25, 10:31
+Liam Gallagher ; Orange, Orange, Apple, price: 4.97, 09:38
+Mei Ling Zhao ; Mango, Mango, Grapes, Mango, Cherry, price: 19.35, 10:23
+Daniel Svensson ; Cherry, price: 3.49, 07:58
+Natalie Brooks ; Pear, Grapes, Cherry, price: 9.97, 16:37
+Alexander Novak ; Cherry, Apple, Mango, price: 9.77, 14:29
+Lucia Fernandez; Mango, Cherry, Mango, price: 12.07, 11:09
+Will Toledo; Mango, Apple, Orange, Pear, price: 11.26, 13:53
+Priya Kapoor ; Grapes, Mango, price: 7.28, 11:43
+Marcus Albright; Cherry, Grapes, Orange, price: 7.97, 17:16
+Amelia Hart; Apple, Grapes, Apple, Apple, price: 8.96, 16:43
+Ethan Maxwell; Apple, Orange, Apple, Cherry, Orange, price: 10.45, 11:32
+Owen McCarthy; Mango, Pear, Cherry, price: 11.27, 14:26
+Priya Kapoor ; Apple, Orange, Grapes, price: 6.47, 11:43
+Naomi Goldstein; Pear, Pear, Orange, Orange, Pear, price: 13.45, 09:36
+Lucia Fernandez; Grapes, Pear, Mango, Grapes, price: 13.76, 13:14
+Ahmed Ghaffar; Apple, price: 1.99, 12:32
+Fatima Zahra; Cherry, Grapes, Orange, Orange, Mango, price: 13.75, 17:25
+Nour El-Sayed; Pear, Mango, Cherry, price: 11.27, 09:55
+Priya Kapoor ; Grapes, Cherry, Pear, Pear, price: 13.46, 17:59
+Keiko Tanaka ; Cherry, price: 3.49, 17:51
+Leila Haddad; Grapes, price: 2.99, 10:13
+Aisha Nasser; Cherry, Cherry, Pear, Grapes, price: 13.46, 10:59
+Aisha Nasser; Orange, Grapes, Mango, price: 8.77, 07:43
+Natalie Brooks ; Cherry, price: 3.49, 17:17
+Lucia Fernandez; Cherry, Orange, price: 4.98, 12:26
+Ahmed Ghaffar; Cherry, Grapes, Mango, price: 10.77, 11:26
+Alexander Novak ; Orange, Grapes, Grapes, Pear, Cherry, price: 14.45, 09:22
+Jamal Washington; Grapes, Mango, Orange, price: 8.77, 07:56
+Fatima Zahra; Pear, price: 3.49, 09:44
+Sofia Romano ; Orange, Orange, Mango, price: 7.27, 12:58
+Yusuf Demir ; Apple, Apple, price: 3.98, 09:41
+Owen McCarthy; Cherry, price: 3.49, 10:12
+Saskia van Dijk; Pear, Pear, price: 6.98, 15:34
+Chloe Nguyen; Orange, Orange, Cherry, Pear, Apple, price: 11.95, 10:17
+Maya Sinclair; Pear, price: 3.49, 12:39
+Arjun Mehta; Apple, Orange, Cherry, Mango, price: 11.26, 16:43
+Leila Haddad; Apple, price: 1.99, 15:32
+Daniel Svensson ; Cherry, price: 3.49, 17:57
+Natalie Brooks ; Pear, price: 3.49, 12:31
+Elena Petrova ; Orange, Pear, price: 4.98, 11:03
+Marcus Albright; Apple, Mango, Grapes, Mango, Pear, price: 17.05, 13:30
+Malik Johnson; Cherry, Mango, Pear, price: 11.27, 17:13
+Jamal Washington; Grapes, price: 2.99, 15:08
+Arjun Mehta; Cherry, Orange, Mango, price: 9.27, 09:13
+Mei Ling Zhao ; Orange, Pear, price: 4.98, 13:17
+Mei Ling Zhao ; Pear, Apple, Cherry, price: 8.97, 11:51
+Leila Haddad; Apple, Orange, price: 3.48, 15:06
+Jamal Washington; Mango, Mango, price: 8.58, 16:39
+Saskia van Dijk; Apple, Grapes, Mango, price: 9.27, 14:38
+Ethan Maxwell; Pear, Apple, Grapes, Orange, price: 9.96, 09:55
+Diego Morales ; Pear, price: 3.49, 11:15
+Chloe Nguyen; Orange, Apple, price: 3.48, 14:29
+Yusuf Demir ; Pear, Grapes, price: 6.48, 13:45
+Maya Sinclair; Orange, Apple, Cherry, Mango, price: 11.26, 15:47
+Aisha Nasser; Grapes, price: 2.99, 17:15
+Viktor Ivanov; Orange, Mango, Mango, Grapes, price: 13.06, 10:22
+Keiko Tanaka ; Apple, Mango, Mango, Mango, Orange, price: 16.35, 17:05
+Arjun Mehta; Cherry, price: 3.49, 15:22
+Elena Petrova ; Mango, Orange, Cherry, price: 9.27, 16:31
+Malik Johnson; Grapes, Mango, Pear, Cherry, price: 14.26, 11:31
+Chloe Nguyen; Cherry, Pear, Grapes, Cherry, Pear, price: 16.95, 10:40
+Marcus Albright; Cherry, price: 3.49, 08:26
+Yusuf Demir ; Grapes, Mango, Pear, price: 10.77, 10:23
+Nour El-Sayed; Grapes, Cherry, Mango, price: 10.77, 10:14
+Lucia Fernandez; Pear, price: 3.49, 11:15
+Sofia Romano ; Pear, Apple, Grapes, Grapes, Orange, price: 12.95, 10:47
+Aisha Nasser; Cherry, Grapes, Pear, Mango, price: 14.26, 16:17
+Amelia Hart; Orange, Pear, Apple, Grapes, Cherry, price: 13.45, 14:32
+Leila Haddad; Apple, Grapes, Cherry, Apple, price: 10.46, 07:35
+Will Toledo; Pear, Orange, Cherry, price: 8.47, 17:45
+Isabella Caruso; Orange, Grapes, Mango, Grapes, Cherry, price: 15.25, 15:29
+Chloe Nguyen; Apple, Pear, Pear, Grapes, price: 11.96, 08:18
+Alexander Novak ; Pear, Grapes, Apple, Cherry, Cherry, price: 15.45, 15:55
+Darius Chen; Grapes, Cherry, price: 6.48, 07:44
+Priya Kapoor ; Grapes, Mango, Grapes, Apple, Orange, price: 13.75, 08:12
+Javier Ramos ; Mango, price: 4.29, 17:03
+Arjun Mehta; Orange, Grapes, Cherry, Orange, Orange, price: 10.95, 11:14
+Lucia Fernandez; Mango, Apple, Orange, Apple, Mango, price: 14.05, 16:31
+Arjun Mehta; Mango, Mango, Mango, Orange, price: 14.36, 13:56
+Marcus Albright; Mango, Apple, Pear, Grapes, Mango, price: 17.05, 07:22
+Ethan Maxwell; Mango, Cherry, Apple, Grapes, price: 12.76, 08:51
+Darius Chen; Grapes, Apple, Pear, Mango, Orange, price: 14.25, 08:11
+Arjun Mehta; Grapes, Orange, Cherry, Pear, price: 11.46, 17:07
+Jamal Washington; Orange, price: 1.49, 08:10
+Sofia Romano ; Orange, price: 1.49, 09:51
+Malik Johnson; Grapes, Pear, Cherry, Cherry, price: 13.46, 10:06
+Chloe Nguyen; Cherry, price: 3.49, 13:53
+Viktor Ivanov; Grapes, Mango, Mango, Orange, Cherry, price: 16.55, 11:32
+Keiko Tanaka ; Apple, Pear, price: 5.48, 17:01
+Liam Gallagher ; Apple, Orange, Mango, price: 7.77, 11:53
+Jamal Washington; Orange, price: 1.49, 14:27
+Fatima Zahra; Grapes, Pear, Orange, price: 7.97, 09:37
+Isabella Caruso; Apple, price: 1.99, 16:06
+Nour El-Sayed; Orange, price: 1.49, 15:18
+Priya Kapoor ; Mango, Apple, price: 6.28, 12:18
+Diego Morales ; Mango, Orange, Grapes, Mango, Orange, price: 14.55, 13:30
+Owen McCarthy; Pear, price: 3.49, 12:16
+Daniel Svensson ; Cherry, Cherry, Orange, Pear, Pear, price: 15.45, 09:20
+Rajesh Patel; Cherry, Apple, Apple, Grapes, price: 10.46, 16:53
+Samuel Osei ; Mango, Mango, Apple, Cherry, price: 14.06, 11:39
+Naomi Goldstein; Mango, Pear, price: 7.78, 08:54
+Arjun Mehta; Pear, Cherry, Orange, Pear, price: 11.96, 07:21
+Sofia Romano ; Mango, Mango, Cherry, Cherry, price: 15.56, 08:24
+Marcus Albright; Pear, Mango, Cherry, Grapes, Mango, price: 18.55, 13:38
+Maya Sinclair; Orange, price: 1.49, 13:34
+Yusuf Demir ; Pear, Apple, Orange, Cherry, price: 10.46, 16:54
+Malik Johnson; Cherry, price: 3.49, 12:08
+Malik Johnson; Apple, Mango, Orange, price: 7.77, 09:45
+Mei Ling Zhao ; Cherry, Cherry, Orange, Mango, price: 12.76, 14:07
+Will Toledo; Pear, Mango, Pear, Orange, Mango, price: 17.05, 08:05

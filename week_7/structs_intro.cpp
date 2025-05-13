@@ -1,5 +1,6 @@
 // Structs!!!
 
+#include <ios>
 #include <iostream>
 #include <string>
 
@@ -22,6 +23,31 @@ struct Source {
 		return cite;
 	}
 };
+
+/**
+Determines if the first source given is newer than the second source given and returns true if so
+
+@param Source& s1 : first source
+@param Source& s2 : second source
+@return bool : true if s1 is newer than s2
+*/
+bool newer(const Source& s1, const Source& s2) {
+	if (s1.year > s2.year) {
+		return true;
+	} else if (s1.year < s2.year) {
+		return false;
+	} else {
+		if (s1.month > s2.month) {
+			return true;
+		} else if (s1.month < s2.month) {
+			return false;
+		} else {
+			cout << "Cannot determine which is newer..." << "\n";
+			return false;
+		}
+	}
+}
+
 
 int main() {
 	// Today we will talk about CLASSES!! WOOO
@@ -52,7 +78,19 @@ int main() {
 	cout << a.title << "\n";
 	cout << a.month << "\n";
 	// we can also add member functions to our struct (try to avoid in real life) which will have access to the data in there (write member function APA cite)
-	cout << a.apa_cite() << "\n";	
+	cout << a.apa_cite() << "\n";
+	
+	// we can also write functions that take this new data type as their input (create newer function) 
+	Source b;
+	b.author_first = "Leah";
+	b.author_last = "Keating";
+	b.title = "A generating-function approach to modelling complex contagion on clustered networks with multi-type branching processes";
+	b.year = 2023;
+	b.journal = "Journal of Complex Networks";
+	b.month = 12;
+	b.preprint = false;
+	cout << boolalpha;
+	cout << newer(a, b) << "\n";
 
 	return 0;
 }
