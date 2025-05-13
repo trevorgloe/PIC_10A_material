@@ -92,5 +92,19 @@ int main() {
 	cout << boolalpha;
 	cout << newer(a, b) << "\n";
 
+	// Note on object oriented programming:
+	// 4 fundamentals:
+	//	1. Abstraction
+	//	2. Encapsulation
+	//	3. Inheritance
+	//	4. Polymorphism
+	// Abstraction is what we will be doing today: the idea is that somebody using your code does not need to know all the details of whats going on under the hood
+	// We "abstract" away some of the inner details by exposing an interface that the user can use
+	// Example strings: we just think of strings as their own data type without thinking about how they are storing a bunch of chars along with a location in memory, information about the size, etc.
+	// The details about how the string is implemented is a lower level of abstraction
+	// By making classes and givning them a higher-level way to interact, we are creating a higher level of abstraction
+	// This is basically always happening in programming and you can always go to a lower level of abstraction
+	// Another example: python -> C -> Assembly langauage -> Binnary -> Transistors and FPGAs -> literal physics of how electrons move
+
 	return 0;
 }
