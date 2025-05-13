@@ -15,6 +15,8 @@ struct Purchase {
 	float price;
 	int hour;
 	int minute;
+
+	Purchase(string _name, vector<string> _fruit, float _price, int _hour, int _minute);
 };
 
 #endif
