@@ -7,6 +7,7 @@
 #include <fstream>
 #include <string>
 #include "purchase.hpp"
+#include "sales_day.hpp"
 
 using namespace std;
 
@@ -30,7 +31,7 @@ int main() {
 		// format the data from the line into the necessary information
 		size_t pos1 = line.find(';');
 		string name = line.substr(0, pos1);
-		cout << name << "\n";
+		// cout << name << "\n";
 		// get all the fruits
 		vector<string> this_fruits;
 		bool colon_flag = false;	
@@ -44,7 +45,7 @@ int main() {
 				string new_fruit = line.substr(pos1+1, first_comma - pos1 - 1);
 				this_fruits.push_back(new_fruit);
 				pos1 = first_comma;
-				cout << new_fruit << "\n";
+				// cout << new_fruit << "\n";
 			}
 		}
 		// next get the price
@@ -55,7 +56,7 @@ int main() {
 		string price_str = line.substr(pos2+1, pos3 - pos2);
 		// cout << price_str << "\n";
 		float this_price = stof(price_str);
-		cout << this_price << "\n";
+		// cout << this_price << "\n";
 		// finally get the time in two ints
 		pos1 = line.find(',', pos2);
 		// cout << line.substr(pos1) << "\n";
@@ -66,7 +67,7 @@ int main() {
 		// cout << min_str << "\n";
 		int this_hour = stoi(hour_str);
 		int this_min = stoi(min_str);
-		cout << "Time is " << this_hour << ":" << this_min << "\n";
+		// cout << "Time is " << this_hour << ":" << this_min << "\n";
 
 		// then create the struct 
 		Purchase this_purchase(name, this_fruits, this_price, this_hour, this_min);
@@ -76,6 +77,31 @@ int main() {
 	cout << all_purchases[20].price << "\n";
 	cout << all_purchases[149].name << "\n";
 	cout << all_purchases[149].minute << "\n";
+	cout << all_purchases.size() << "\n";	
+
+	// great! Now we got our data in our nice vector of structs
+	// Lets make an encompassing struct that will contain this vector and some other information (make sales_day struct)
+	Sales_Day today(all_purchases);
+	today.print();
+
+	/* First task: figure out what time of day the most sales happen
+	theres a lot of different ways we could do this, but lets just say theres morning, mid-day, and afternoon
+	*/
+	// To make this convenient, lets put a function inside our purchase struct that determines if the time of day is in the morning, mid-day, or afternoon
+	// Next we'll want to make something in our Sale_Day struct to add up all the morning, mid-day, and afternoon purchases
+	cout << "Total amount spent in the morning = " << today.tot_price_morn() << "\n";
+	cout << "Total amount spent in the mid-day = " << today.tot_price_mid() << "\n";
+	cout << "Total amount spend in the afternoon = " << today.tot_price_after() << "\n";
+	// WOOHOO now we have finished the first task - we know that the most money was spent in the afternoon (technically, this is just because we made the afternoon the biggest window here but shhh)
+	
+	/* Second task: figure out which fruit is the most popular
+	We want to add up how much each of the different kinds of fruit was purchased and then compare them
+	*/
+	// Unfortunately, in a single purchase, there could be multiple instances of each fruit, so lets make a function in our purchase struct that gives us the amount of each fruit
+	// Now that we have our function in Purchase, lets make a function in Sales_Day that adds up the number of each fruit from each purchase
+	today.compute_tots();
+	cout << "Apple: " << today.num_apple << " Pear: " << today.num_pear << " Orange: " << today.num_orange << " Grape: " << today.num_grape << " Cherry: " << today.num_cherry << " Mango: " << today.num_mango << "\n";
+	// WOOOOOO the second task is done!!!
 
 	return 0;
 }
