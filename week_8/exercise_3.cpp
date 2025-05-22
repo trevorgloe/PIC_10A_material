@@ -8,11 +8,13 @@ struct C {
     int mv1;
     int mv2;
     double mv3;
+    C (double a, double b, double c) : mv1(a), mv2(b), mv3(c) {}
+
     C (int a, double b, double c) : mv1(a), mv2(b), mv3(c) {
         cout << a << ' ' << b << ' ' << c << endl;
         cout << mv1 << ' ' << mv2 << ' ' << mv3 << endl;
     }
-    C (double a, double b, double c) : mv1(a), mv2(b), mv3(c) {}
+    
 };
 
 int main () {

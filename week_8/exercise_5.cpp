@@ -22,9 +22,7 @@ class A {
             cout << name << "\n";
         } 
 
-};
-
-    
+};    
 int main() {
     A my_A(79, 2.34, "Trevor");
     my_A.change_name();
