@@ -1,11 +1,8 @@
 // using pointers vs references in functions
 // which of these two versions of the function may be more desirable for developers?
 // fun fact: I was asked this question in an interview once :)
-
 #include <iostream>
-
 using namespace std;
-
 class Mat {
     public:
         int a;
@@ -13,17 +10,14 @@ class Mat {
         int c;
         int d;
 };
-
 // get second element using reference
 int elem(Mat& M) {
     return M.b;
 }
-
 // get second element using pointer
 int elem(Mat* M) {
     return M->b; // shorthand for (*M).b
 }
-
 int main() {
     Mat A;
     A.b = 10;
