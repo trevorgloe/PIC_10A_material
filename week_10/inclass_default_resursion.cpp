@@ -49,7 +49,26 @@ class Matrix {
             out[0] = a11 * v[0] + a12 * v[1];
             out[1] = a21 * v[0] + a22 * v[1];
             return out;
-        } 
+        }
+
+    Matrix power(int n, Matrix base = Matrix()) {
+        // if n=1, return matrix
+        if (n==1) {
+            if (base.isNaN()) {
+                return *this;
+            } else {
+                return base;
+            }
+        }
+        if (base.isNaN()) {
+            // set base to be the implicit parameter
+            base = Matrix(a11, a12, a21, a22);
+        }
+        cout << "n = " << n << "\n";
+        Matrix new_mat = mat_mult(base); // A.mat_mult(..)
+        new_mat.print();
+        return power(n-1, new_mat);
+    }
 };
 
 int main() {
@@ -68,7 +87,7 @@ int main() {
     Matrix Nans;
     cout << Nans.isNaN() << "\n";
 
-    // Matrix Asqr = B.power(12);
-    // Asqr.print();
+    Matrix Asqr = A.power(8);
+    Asqr.print();
     return 0;
 }
