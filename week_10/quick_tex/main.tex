@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{algorithm, algpseudocode}
+\usepackage{amsmath}
+
+\title{CUR rook results}
+\author{Trevor Loe}
+\date{June 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+\begin{algorithm}
+	\caption{Recursive Integral}
+	\begin{algorithmic}[1]
+		\Function{RecursiveIntegral}{$f$,grid}
+		\State ans $\gets \sum_{x\text{ in grid}} f(x)\Delta x$
+		\State Compute error
+		\If{error $ > $ tolerance}
+		\State (grid1, grid2) $\gets $split grid
+		\State term1 $\gets $RecursiveIntegral($f$, grid1)
+		\State term2 $\gets $RecursiveIntegral($f$, grid2)
+		\State ans $\gets $term1 $+$ term2
+		\EndIf
+		\State \Return{ans}
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
