@@ -74,7 +74,32 @@ int main() {
 	// both set and unordered set have a member function called "count" which returns the number of occurances of that element
 	cout << uA.count('a') << "\n"; // note that this value will only ever return 1 or 0, since a set can only store one ocurrance of a value
 	cout << oB.count(4) << "\n";
+	// Note: There is a version of a set that allows for repeated elements, it is called a "multiset" (both a mathematical idea and implimented in most languages
 	// in general, count is faster on unordered sets than on ordered sets, but it is still faster than the same kind of operation would be on vectors (more on this later)
+	
+	// If time: why is this the case? 
+	/*
+	A vector stores the elements in continuous memory
+	v[0] v[1] v[2] ... v[n]
+	So if we want to find if 4 occurs in v, we just sequentially loop through all the elements. This gives us a worst-case time of n checks
+
+	A set stores the elements in what is called a binary tree 
+	The first element a has connections to two more elements, b and c
+	b has two connections to the next elements d and e
+	c has two connections to the next elements f and g
+	and so on...
+	If we want to find a value, say 4, we go to the first node a (suppose it is 10) and check if 4 is less than a
+	It is less than a so be go to the right branch of the tree
+	We are now at not b and we do the same check. Maybe 4 is greater than b so we go to the left branch of b
+	Continuing this, we can find our value rather quickly, because we don't need to do n checks. If our tree is organized well the depth of the tree is the number of times we can divide n by 2. This is log_2(n)
+
+	Finally, an unordered set organizes elements in a "hash table"
+	A harsh table gives a numerical key, or "hash" to each element via a function that satisifies two things:
+	1. It is fast (takes the same amount of time for every element
+	2. It will not give the same number for two different elements in the unordered set
+	This hash function then allows us to find an element in the amount of time it takes a compute the hash via the function
+	Ex: if the elements are strings, take the ASCII code of each char and add them up (in real life you would throw in some modular arithmetic to make it more "random")
+	*/
 	
 	// Problems
 	// Lets say we have an vector of words like follows
@@ -118,5 +143,10 @@ int main() {
 		cout << u << " ";
 	}
 	cout << "\n";
+
+	// Interview-style question: Say we have a vector v. What is a fast way to find the unique elements of this vector and storing them?
+	// We can use an unordered set!
+	vector<int> w = {1, 4, 2, 5, 4, 4, 2, 5, 6, 5, 2, 2, 1};
+	unordered_set<int> unique_w(w.begin(), w.end()); // this now has all the unique elements
 	return 0;
 }
