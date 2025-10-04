@@ -19,6 +19,7 @@ unordered_set<int> uset_union(unordered_set<int> A, unordered_set<int> B) {
 	return U;
 }
 
+
 int main() {
 	// Lets briefly go over some work with vectors, sets, and unordered sets
 	// Then we can go through some problems
@@ -148,5 +149,6 @@ int main() {
 	// We can use an unordered set!
 	vector<int> w = {1, 4, 2, 5, 4, 4, 2, 5, 6, 5, 2, 2, 1};
 	unordered_set<int> unique_w(w.begin(), w.end()); // this now has all the unique elements
+	
 	return 0;
 }
