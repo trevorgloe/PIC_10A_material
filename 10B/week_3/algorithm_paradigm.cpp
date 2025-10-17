@@ -34,13 +34,18 @@ vector<int> greedy_coin(int target, vector<int> cents) {
 	while (target > 0) {
 		// greedy step: take the largest coin we possibly can
 		int val = 0;
+		size_t idx = 0;
+		size_t cnt = 0;
 		for (int v : cents) {
 			if (v > val && v <= target) {
 				val = v;
+				idx = cnt;			
 			}
+			cnt++;
 		}
 		target -= val;
 		out.push_back(val);
+		cents.erase(cents.begin() + idx);
 	}
 	return out;
 }
