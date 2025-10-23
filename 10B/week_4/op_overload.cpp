@@ -5,6 +5,7 @@
 using namespace std;
 
 class Mesh {
+	friend bool operator<(const Mesh&, const Mesh&);
 private:
 	set<float> data; // points in mesh
 	int n; // number of points in the mesh
@@ -26,7 +27,7 @@ public:
        		}
 	}
 
-	void print() {
+	void print() const {
 		for (float el : data) {
        			cout << el << " ";
        		}
@@ -41,14 +42,10 @@ public:
 		}
 		data.insert(x);
 	}
-
-	set<float> get_set() const {
-		return data;
-	}
-
+	
 	Mesh& operator+=(const Mesh& right) {
 		// be able to add multiple meshes but making the union
-		for (const float el : right.get_set()) {
+		for (const float el : right.data) {
 			if (el > lower && el < upper) {
 				data.insert(el);
 			}
@@ -68,8 +65,8 @@ public:
 bool operator<(const Mesh& left, const Mesh& right) {
 	// if right contains all of left, then return true, otherwise return false
       	bool comp = true;
-	for (float el : left.get_set()) {
-      		if (!right.get_set().count(el)) {
+	for (float el : left.data) {
+      		if (!right.data.count(el)) {
       			comp = false;
       			break;
       		}
@@ -77,9 +74,14 @@ bool operator<(const Mesh& left, const Mesh& right) {
 	return comp;
 }
 
+const char& thing(const string& s) {
+	return s[0];
+}
+
 int main() {
 	// Lets see any example of operator overloading for an example we made for the integrator
 	// We want a class that represents the mesh for the integrator (points x1, ..., xn that we use for the edges of the rectanngles)
+	char c = thing("Hello");
 	vector<float> v = {0.0, 0.3, 0.6, 0.9, 1.0};
 	Mesh m(v);
 	m.print();
@@ -95,6 +97,7 @@ int main() {
 	m2+=1.0;
 	m2+=0.0;
 	m2+=0.6;
+	m += m2;
 	bool comp = m2 < m;
 	cout << comp << "\n";
 
