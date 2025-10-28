@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cassert>
 
 using namespace std;
 
@@ -22,16 +23,16 @@ private:
 	float a22;
 };
 
-class FIFOMatBuffer {
+class LIFOMat {
 private:
 	size_t size; // size off our FIFO buffer
 	Matrix* head; // "head", the top of the buffer
 	Matrix* tail; // "tail", the bottom of the buffer
 public:
-	FIFOMatBuffer(size_t n) : head(new Matrix[n]), tail(NULL), size(n) { tail = head; }; // only use a default constructor for now
+	LIFOMat(size_t n) : head(NULL), tail(new Matrix[n]), size(n) { head = tail; }; // only use a default constructor for now
 	
 	// Add a matrix to the buffer, but only if it will fit in the remaining buffer
-	FIFOMatBuffer& operator+=(const Matrix& right) {
+	LIFOMat& operator+=(const Matrix& right) {
 		if ((head - tail) < size) {
 			*head = right;
 			head++;
@@ -54,7 +55,7 @@ public:
 	}		
 
 	// destructor to free up the memory that the class allocates
-	~FIFOMatBuffer() {
+	~LIFOMat() {
 		delete[] tail;
 	}
 };
@@ -67,7 +68,7 @@ int main() {
 
 	/* Here we make a FIFO (first in, first out) buffer. These are very useful for things like your operating system and lower-level programming. But they can still show up in higher-level situations all the time. Whenever we have a process that isn't infinitely fast, we can buffer the data we feed in using a structure like this. 
 	*/
-	FIFOMatBuffer B(3);
+	LIFOMat B(3);
 	// We make the buffer and give it a specified size. The space that the buffer allocates is technically static, but we will allocate it onto the heap, so that the rest of our program can keep running without having to worry about keep track of that data.
 	B += M; // each time we add a matrix, it copies the contents of that matrix into the next slot on the heap
 	B += M2; // the slot is addressed by the private variable "head"
