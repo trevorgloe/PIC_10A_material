@@ -4,7 +4,7 @@
 using namespace std;
 
 /*
-Simple 2x2 matrix class that we will use for our buffer example
+Simple 2x2 matrix class that we will use for our stack example
 Nothing fancy, just a constructor and it stores 4 float values
 */
 class Matrix {
@@ -25,13 +25,13 @@ private:
 
 class LIFOMat {
 private:
-	size_t size; // size off our FIFO buffer
-	Matrix* head; // "head", the top of the buffer
-	Matrix* tail; // "tail", the bottom of the buffer
+	size_t size; // size off our stack
+	Matrix* head; // "head", the top of the stack 
+	Matrix* tail; // "tail", the bottom of the stack 
 public:
 	LIFOMat(size_t n) : head(NULL), tail(new Matrix[n]), size(n) { head = tail; }; // only use a default constructor for now
 	
-	// Add a matrix to the buffer, but only if it will fit in the remaining buffer
+	// Add a matrix to the stack, but only if it will fit in the remaining stack 
 	LIFOMat& operator+=(const Matrix& right) {
 		if ((head - tail) < size) {
 			*head = right;
@@ -42,7 +42,7 @@ public:
 		return *this;
 	}
 
-	// get the next element in the buffer, but only if the buffer is non-empty
+	// get the next element in the stack, but only if the stack is non-empty
 	Matrix getNext() {
 		Matrix out;
 		if (head != tail) {
@@ -66,17 +66,17 @@ int main() {
 	Matrix M3(2,2,2,2);
 	M.print();
 
-	/* Here we make a FIFO (first in, first out) buffer. These are very useful for things like your operating system and lower-level programming. But they can still show up in higher-level situations all the time. Whenever we have a process that isn't infinitely fast, we can buffer the data we feed in using a structure like this. 
+	/* Here we make a LIFO (last in, first out) data structure (also called a stack). These are very useful for things like your operating system and lower-level programming. But they can still show up in higher-level situations all the time. Whenever we have a process that isn't infinitely fast, we can buffer the data we feed in using a structure like this. 
 	*/
 	LIFOMat B(3);
-	// We make the buffer and give it a specified size. The space that the buffer allocates is technically static, but we will allocate it onto the heap, so that the rest of our program can keep running without having to worry about keep track of that data.
+	// We make the stack and give it a specified size. The space that the stack allocates is dependent on the input to the constructor and we will allocate it onto the heap, so that the rest of our program can keep running without having to worry about keep track of that data.
 	B += M; // each time we add a matrix, it copies the contents of that matrix into the next slot on the heap
 	B += M2; // the slot is addressed by the private variable "head"
 	B += M3;
-	B += M2; // once the buffer is full, it stops adding data and incrementing the head pointer
+	B += M2; // once the stack is full, it stops adding data and incrementing the head pointer
 	
 	for (int i=0; i < 4; ++i) {
-		B.getNext().print(); // note how once we've used up the whole buffer, it won't let us take any more
+		B.getNext().print(); // note how once we've used up the whole stack, it won't let us take any more
 	}
 
 	// This is yet another great example of why you would use encapsulation to make the head and tail pointers not accessable to the rest of the program. If somebody else could mess with them, we could easily loose track of the data in our buffer or loose the ability to check the remaining space
