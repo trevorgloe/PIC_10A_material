@@ -1,4 +1,5 @@
 #include"myshared_ptr.hpp"
+#include<utility>
 
 void MySharedPtr::copy(const MySharedPtr& right) {
 	// reasign all this objects pointers to that of the other object	
@@ -47,9 +48,22 @@ MySharedPtr& MySharedPtr::operator=(const MySharedPtr& right) {
 
 MySharedPtr& MySharedPtr::operator=(MySharedPtr&& right) {
 	clean(); // get rid of the current reference
-	move(right);
+	move(std::move(right));
 	return *this;
 }
 
+MySharedPtr::MySharedPtr(MySharedPtr&& right) {
+	move(std::move(right));
+}
 
+int* MySharedPtr::getRefs() {
+	return count;
+}
 
+float* MySharedPtr::getPtr() {
+	return ptr;
+}
+
+MySharedPtr::~MySharedPtr() {
+	clean();
+}
