@@ -6,6 +6,7 @@
 Example 1: Write an iterator that iterates through the square numbers up to (not including) n^2
 */
 
+
 using namespace std;
 
 int main() {
