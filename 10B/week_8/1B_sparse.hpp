@@ -28,8 +28,22 @@ public:
 	// get element
 	float& get(const int& i);
 
-
+	class iterator;
+	iterator begin();
+	iterator end();
 	// float& test();
+};
+
+class SparseVec::iterator {
+private:
+	const SparseVec* container;
+	float* curr;
+	size_t ind;
+	friend bool operator!=(const iterator& it1, const iterator& it2);
+public:
+	iterator(const SparseVec* container, float* curr, size_t ind);
+	iterator& operator++();
+	float& operator*() const;
 };
 
 #endif
