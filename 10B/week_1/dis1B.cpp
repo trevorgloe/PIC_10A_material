@@ -1,58 +1,78 @@
 #include<iostream>
 #include<vector>
 #include<set>
-#include<string>
 #include<unordered_set>
+#include<string>
+
+class TwoInts {
+private:
+	int first;
+	int second;
+
+public:
+	// constructor
+	TwoInts(int _first, int _second) : first(_first), second(_second) {}
+
+	int sum_them() {
+		return first + second;
+	}
+};
 
 using namespace std;
 
 int main() {
-	// A bit more on sets and unordered sets
-	set<int> oA;
-	oA.insert(1);
-	oA.insert(2);
-	oA.insert(10);
-	oA.insert(6);
-	for (int i : oA) {
-		cout << i << " ";
-	}
-	cout << "\n";
-	// set stores the elements in order according to "<"
+	TwoInts A(1,2);
+	cout << A.sum_them() << "\n";
+	// cout << A.first << "\n";
 	
-	// unordered sets
-	unordered_set<string> uA;
-	uA.insert("string1");
-	uA.insert("string2");
-	uA.insert("other string");
-	for (string s : uA) {
-		cout << s << " ";
+	int a = 1;
+	int* p = &a;
+	cout << p << "\n";
+	cout << *p << "\n";
+
+	// Vectors
+	vector<int> v = {1,2,3,4};
+	// can iterate through with a for loop
+	for (int i=0; i<v.size(); ++i) {
+		cout << v[i] << "\n";
 	}
-	cout << "\n";
 
-	cout << oA.count(1) << "\n";
-	cout << uA.count("string3") << "\n";
+	// set 
+	set<char> B;
+	B.insert('b');
+	B.insert('a');
+	// range-based for loop
+	for (char c : B) {
+		cout << c << "\n";
+	}
+	cout << B.count('c') << "\n";
 
-	// Problems
-	// Lets say we have a vector of words
-	vector<string> words = {"apple", "hameburger", "pizza", "pear", "grape", "tofu", "beans", "watermellon"};
-	// we want to figure out how many of the words in the vector have a given char
-	const char testchar = 'a';
-	// Step 1: We want to put the chars from each of the words into its own unordered set
+	unordered_set<char> uB;
+	uB.insert('a');
+	uB.insert('b');
+	for (char c : uB) {
+		cout << c << "\n";
+	}
+	cout << uB.count('a') << "\n";
+
+	set<int> C(v.begin(), v.end());
+
+	// Problem
+	vector<string> words = {"apple", "hamburger", "pizza", "pear", "grape", "tofu", "beans", "watermellon"};
+	// We want to figure out how many words in the vector have a certain lettter
+	const char testchar = 'z';
+	// Step 1: We put the chars from each word into an unordered set (one for each word)
+	// Step 2: Then go through each of the unordred sets and figure out if it has the letter we want
+
 	vector<unordered_set<char>> charsets;
 	for (string word : words) {
-		unordered_set<char> wordset;	
-		for (char c : word) {
-			wordset.insert(c);
+		unordered_set<char> wordset;
+		for (char w : word) {
+			wordset.insert(w);
 		}
-
 		charsets.push_back(wordset);
 	}
-
-	// Step 2: We want to figure out if the test char is in each unordered set
-	for (unordered_set<char> charset : charsets) {
-		if (charset.count(testchar)) {
-			cout << "In the set\n";
-		}
-	}
+	cout << charsets[0].count('a') << "\n";
+	
 	return 0;
 }
