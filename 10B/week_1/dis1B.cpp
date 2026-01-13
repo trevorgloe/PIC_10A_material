@@ -66,10 +66,11 @@ int main() {
 
 	vector<unordered_set<char>> charsets;
 	for (string word : words) {
-		unordered_set<char> wordset;
-		for (char w : word) {
-			wordset.insert(w);
-		}
+		unordered_set<char> wordset(word.begin(), word.end());
+		// for (char w : word) {
+		// 	wordset.insert(w);
+		// }
+
 		charsets.push_back(wordset);
 	}
 	cout << charsets[0].count('a') << "\n";
