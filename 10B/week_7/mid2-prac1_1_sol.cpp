@@ -71,6 +71,10 @@ public:
 		return *this;
 	}
 
+	~IntArray() {
+		delete[] data;
+	}
+
 };
 
 int main() {

@@ -31,4 +31,7 @@ int main() {
       		v.insert(i,i);
 	}
 	// IntArray w(v);
+	int a = 1;
+	// std::move(a);
+	// int&& r = a;
 }

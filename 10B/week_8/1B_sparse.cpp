@@ -1,4 +1,4 @@
-#include"sparse.hpp"
+#include"1B_sparse.hpp"
 
 SparseVec::SparseVec() : data(nullptr), idx(), n(0), z(new float(0)), c(0) {};	
 SparseVec::SparseVec(size_t c, size_t n) : data(new float[c]), idx(), n(n), z(new float(0)), c(c) {}
@@ -38,6 +38,7 @@ SparseVec::iterator& SparseVec::iterator::operator++() {
 	ind++;
 	int j = container->is_in(ind);
 	if (j != -1) {
+		// ind corresponds to a non-zero element
 		curr = container->data+j;
 	} else {
 		curr = container->z;
@@ -60,7 +61,7 @@ bool operator!=(const SparseVec::iterator& it1, const SparseVec::iterator& it2) 
 SparseVec::iterator SparseVec::begin() {
 	int j = is_in(0);
 	if (j != -1) {
-		return {this, &data[0], 0};
+		return {this, &data[j], 0};
 	} else {
 		return {this, z, 0};
 	}
@@ -74,8 +75,3 @@ SparseVec::iterator SparseVec::end() {
 		return {this, z, n};
 	}
 }
-//
-// float& SparseVec::test() {
-// 	return *z;
-// }
-
