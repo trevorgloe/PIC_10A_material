@@ -1,14 +1,10 @@
 #include<iostream>
-#include<vector>
-#include<string>
 #include<functional>
 
-using namespace std;
-
 int my_log2(int n, int cnt=0) {
-	// do integer division
+	// do integer division by 2
 	int new_n = n/2;
-	if (new_n == 0) {
+	if (new_n==0) {
 		return cnt;
 	}
 	cnt = my_log2(new_n, cnt+1);
@@ -19,41 +15,38 @@ float f(float x) {
 	return 2*x*x - 3*x;
 }
 
-float integral(function<float(float)> f, float upper, float lower, float eps) {
-	// Step 1:
-	// Compute the integral using one rectangle (upper and lower)
-	// cout << "Function call!\n";
-	float one_rect = f(lower) * (upper - lower);
+float integral(std::function<float(float)> f, float upper, float lower, float eps) {
+	// 3 steps
+	// 1. Compute the integral using one region
+	//
+	// 2. Compute the integral using 2 regions (find the midpoint)
+	//
+	// 3. (Slightly harder) Compare the integral computed with one and two regions, and recurse if this difference is above eps
+	
+	// 1.
+	float onereg = f(lower) *(upper - lower);
 
-	// Step 2:
-	// Compute the area using two rectangles
-	// use the midpoint
-	float two_rect = f(lower)*(upper - lower)/2 + f((upper + lower)/2)*(upper - lower)/2;
+	// 2. 
+	float tworeg_1 = f(lower) * (upper - lower)/2.0;
+	float tworeg_2 = f((upper + lower)/2.0) * (upper - lower)/2.0;
 
-	// Step 3: recurse if the difference in the approximations is greater than eps, otherwise return two_rect
-	if (abs(one_rect - two_rect) < eps) {
-		return two_rect;
+	// 3. 
+	float two_reg = tworeg_1 + tworeg_2;
+	if (std::abs(two_reg - onereg) > eps) {
+		// recurse
+		return integral(f, upper, (upper + lower)/2.0, eps) + integral(f, (upper+lower)/2.0, lower, eps);
+	} else {
+		return two_reg;
 	}
-	float int1 = integral(f, (upper + lower)/2, lower, eps);
-	float int2 = integral(f, upper, (upper + lower)/2, eps);
-	return int1 + int2;
 }
-
-vector<string> substrings_of_s(string s) {
-	vector<string> w = substrings_of_s(s.substr(1));
-}
+using namespace std;
 
 int main() {
-	// Recursion!!!
-	// Recursion is calling the function inside its own body
-	cout << my_log2(35) << "\n";
+	cout << my_log2(8) << "\n";
 
-	// Test it out
-	cout << integral(f, 1, 0, 0.00001) << "\n";
-
-	// Substring
-	// Given a string, find all the substrings
-	// return a vector of all the substrings of a given string s
-	string s = "Hello";
+	float upper = 1.0;
+	float lower = 0.0;
+	float eps = 0.00001;
+	cout << integral(f, upper, lower, eps) << "\n";
 	return 0;
 }

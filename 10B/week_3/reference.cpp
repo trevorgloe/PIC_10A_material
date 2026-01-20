@@ -46,6 +46,14 @@ public:
 	int& give() {return val;};
 };
 
+int passbyref(int& a) {
+	return 2*a;
+}
+
+int passbypoint(int* a) {
+	return 2*(*a);
+}
+
 int main() {
 	// Lets talk some more about references. Specifically, lets talk a bit about returning by reference. 
 	
@@ -101,7 +109,15 @@ int main() {
 	MyObj A(1); // initialize the member variable
 	int& k = A.give();
 
-
+	// Interview question (that I have actually been asked!) 
+	// What is the difference between pass-by-reference and pass-by-pointer?
+	// I am looking for not just the syntax, but also what it actually means and why one may be better than the other
+	int j = 2;
+	cout << passbyref(j) << "\n";
+	cout << passbypoint(&j) << "\n";
+	// Important part: references can never be null!
+	// This means you don't need to worry about things like null-pointer deferences when passing by reference (there still can be dangling references however) 
+	// Generally speaking, passing by reference will be better than passing by pointer if possible
 	
 	return 0;
 }
