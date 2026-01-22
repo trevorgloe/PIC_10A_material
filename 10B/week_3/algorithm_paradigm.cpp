@@ -46,6 +46,11 @@ vector<int> greedy_coin(int target, vector<int> cents) {
 		target -= val;
 		out.push_back(val);
 		cents.erase(cents.begin() + idx);
+
+		for (int v: cents) {
+			cout << v << " ";
+		}
+		cout << "\n";
 	}
 	return out;
 }
@@ -76,7 +81,7 @@ int main() {
 	// Greedy algorithms will not always give you the best outcome, but they are usually very fast
 	// Ex: Coin change problem: we are given a bunch of coins and want to find the minimum number of coins required to make a certain dollar amount
 	vector<int> cents = {1, 1, 5, 10, 25, 25, 50, 50, 50, 100}; // cent values for the coins we have
-	const int target = 130;
+	const int target = 142;
 	vector<int> coins = greedy_coin(target, cents);
 	for (int coin : coins) {
 		cout << coin << " ";

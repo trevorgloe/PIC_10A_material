@@ -1,63 +1,90 @@
 #include<iostream>
-#include <vector>
+#include<vector>
 #include<string>
 
 using namespace std;
 
-float avg(vector<int>& v) {
-	float tot = 0.0;
-	for (int el : v) {
-		tot += el;
+int div_conq_fib(int idx) {
+	if (idx == 0 || idx == 1) {
+		return 1;
+	} else {
+		return div_conq_fib(idx-1) + div_conq_fib(idx-2);
 	}
-	return tot / v.size();
 }
 
-string& good_fnc(string& s) {
-	for (int i=0; i<s.size(); ++i) {
-		s.at(i) += 'A' - 'a';
+int dyn_prog_fib(int idx) {
+	// memoization
+	vector<int> F; // memo
+	F.push_back(1);
+	F.push_back(1);
+
+	if (idx==0 || idx==1) {
+		return F[0];
 	}
-	return s;
+
+	for (int j=2; j<idx; ++j) {
+		F.push_back(F[j-1] + F[j-2]);
+	}
+	return F[idx-1] + F[idx-2];
 }
 
-string bad_fnc(string& s) {
-	string t;
-	for (int i=0; i < s.size(); ++i) {
-		t.push_back(s.at(i) + 'A'-'a');
+vector<int> greedy_coin(int target, vector<int> cents) {
+	vector<int> out;
+	while(target > 0) {
+		// take the largest coin we can
+		int val = 0;
+		size_t idx = 0;
+		size_t cnt = 0;
+		for (int v : cents) {
+			if (v > val && v <= target) {
+				val = v;
+				idx = cnt;
+			}
+			cnt++;
+		}
+		target -= val;
+		out.push_back(val);
+		cents.erase(cents.begin() + idx);
 	}
-	return t;
+	return out;
 }
 
-int& returnStat() {
-	static int af = 3;
-	af++;
-	return af;
+vector<string> substrings_of_s(string s) {
+	// check if we're at the end
+	//
+	if (s.size() == 0) {
+		vector<string> v;
+		v.push_back("");
+		return v;
+	}
+	// If not at the end, take off the first letter and call the function again
+	vector<string> v;
+	string s2 = s.substr(1);
+	v = substrings_of_s(s2);
+	vector<string> w;
+	for (string t: v) {
+		w.push_back(t);
+		w.push_back(s[0] + t);
+	}
+	return w;
 }
 
 int main() {
-	// References
-	int a = 2;
-	int& ar = a;
+	cout << div_conq_fib(10) << "\n";
+	cout << dyn_prog_fib(20) << "\n";
 
-	a++;
-	cout << a << " " << ar << "\n";
-	
-	vector<int> v(100,4);
-	cout << avg(v) << "\n";
+	// coin problem
+	vector<int> cents = {1,1,5,10,25,25,50,50,50,100};
+	const int target = 101;
+	vector<int> out = greedy_coin(target, cents);
+	for (int v : out) {
+		cout << v << " ";
+	}
+	cout << "\n";
 
-	// Returning by reference
-	string s = "mylowercasesstring";
-	string& t = good_fnc(s);
-	cout << t << "\n";
-	cout << s << "\n";
+	// Example: substrings
+	// given a string, we want to print out all of the substrings 
+	string s = "cheese";
 
-	string s2 = "newlower";
-	string t2 = bad_fnc(s2);
-	cout << t2 << "\n";
-
-	// Q: What would happen if I had a function that returned-by-reference a static variable?
-	int& b1 = returnStat();
-	int& b2 = returnStat();
-	af++;
-	cout << b1 << " " << b2 << "\n";
 	return 0;
 }
