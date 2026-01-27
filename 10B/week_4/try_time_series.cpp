@@ -1,5 +1,5 @@
 #include<iostream>
-#include"time_series.hpp"
+#include"ts_1A.hpp"
 #include<fstream>
 #include<string>
 
