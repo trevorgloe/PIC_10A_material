@@ -1,5 +1,7 @@
 #include<iostream>
 #include"time_series.hpp"
+#include<fstream>
+#include<string>
 
 using namespace std;
 
@@ -26,4 +28,29 @@ int main() {
 		cout << v.at(j) << " ";
 	}
 	cout << "\n";
+
+
+	// lets do it with a data file
+	ifstream inputFile("ts_data.txt");
+	if (!inputFile.is_open()) {
+		cout << "Failed to open file.";
+		return 0;
+	}
+	TimeSeries mydata(2.0*3.14159 / 200.0, 0.0, 6);
+	string line;
+	while (getline(inputFile, line)) {
+		mydata+= stof(line);
+	}
+	cout << mydata;
+
+	// now output it to a file
+	ofstream outFile("new_ts_data.txt");
+	vector<float> w = mydata.get_mov_avg();
+	if (outFile.is_open()) {
+		for (int i=0; i<w.size(); ++i) {
+			outFile << w[i] << "\n";
+		}
+	}
+
+	return 0;
 }
