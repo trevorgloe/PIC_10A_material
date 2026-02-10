@@ -28,6 +28,7 @@ private:
 	size_t size; // size off our stack
 	Matrix* head; // "head", the top of the stack 
 	Matrix* tail; // "tail", the bottom of the stack 
+	friend void move_LIFOMat(LIFOMat& from, LIFOMat& to);
 public:
 	LIFOMat(size_t n) : head(NULL), tail(new Matrix[n]), size(n) { head = tail; }; // only use a default constructor for now
 	
@@ -37,7 +38,7 @@ public:
 			*head = right;
 			head++;
 		} else {
-			cout << "Buffer is full\n";
+			cout << "Stack is full\n";
 		}
 		return *this;
 	}
@@ -49,7 +50,7 @@ public:
 			head--;
 			out = *head;
 		} else {
-			cout << "Buffer is empty\n";
+			cout << "Stack is empty\n";
 		}
 		return out;
 	}		
@@ -59,6 +60,24 @@ public:
 		delete[] tail;
 	}
 };
+
+/*
+Move the data from one LIFO mat to another by transfering the pointers
+Runs in O(1) time because it just has to copy 2 points, and nullify 2 pointers
+Once it is done running, A is NOT usable because we got rid of its data. This is the idea of "moving" rather than "copying" 
+If we wanted to be able to copy the data without copying the matrices but rather just have 2 stacks who both own the same matrices on the heap, we would have to use a "shared pointer"
+*/
+void move_LIFOMat(LIFOMat& A, LIFOMat& B) {
+	// suppose that "to" has been initialized to be the same size as "from"
+	// first we need to delete the data that to had previously been holding
+	delete[] B.tail;
+	// next copy the pointers from "from" to "to"
+	B.tail = A.tail;
+	B.head = A.head;
+	// now set A to nullpointers so the deleting doesn't give us any problems
+	A.tail = nullptr; // we can safely delete A without messing up the data that is now in B
+	A.head = nullptr;
+}
 
 int main() {
 	Matrix M(1, 2, 3, 4);
@@ -80,4 +99,7 @@ int main() {
 	}
 
 	// This is yet another great example of why you would use encapsulation to make the head and tail pointers not accessable to the rest of the program. If somebody else could mess with them, we could easily loose track of the data in our buffer or loose the ability to check the remaining space
+	
+	// Interview-style question: Write a function to move a LIFOMat stack. It should run in O(1) time no matter how big the matrices are, and after moving the stack, the moved-from stack will not be used. 
+	// Hint - you should not be copying matrices
 }
