@@ -1,63 +1,70 @@
 #include<iostream>
-#include<vector>
-
-class A {
-	friend A operator+(A left, A right);
-private:
-	int a;
-public:
-	A(int a_): a(a_) {}
-	operator int() {
-		return a;
-	}
-};
-
-A operator+(A left, A right) {
-	return left.a + right.a;
-}
-
-class B {
-private:
-	std::vector<double> d1;
-public:
-	B(std::vector<double> d) : d1(d) {}
-	double sum() const {
-		double ans = 0;
-		for (int i =0; i < d1.size(); ++i) {
-			ans += d1[i];
-		}
-		return ans;
-	}
-};
+#include<cassert>
 
 using namespace std;
 
-int main() {
-	/* Below are some interview-style questions about the explicit, delete, and mutable keywords
-	
-	*/
+/*
+Simple 2x2 matrix class that we will use for our stack example
+Nothing fancy, just a constructor and it stores 4 float values
+*/
+class Matrix {
+public:
+	Matrix(float _a11, float _a12, float _a21, float _a22) : a11(_a11), a12(_a12), a21(_a21), a22(_a22) {}; // constructor
+	Matrix() : a11(0), a12(0), a21(0), a22(0) {}; // need this default constructor to allocate memory
 
-	/*
-	Above is a class called A, with a constructor taking in an int and a casting operator to an int.
-	The below code has an error. Describe how you can fix the error with the explicit keyword.
-	- Which choice is better in what context? What is the downside of each?
-	*/
-	A obj(2);
-	// cout << obj + 10 << "\n";
-
-	/*
-	In the above class B, we have a vector of doubles, suppose that we will want to get the sum of all the elements many many times without actually changing the vector. We don't want to make the sum function non-const because we want it to still work with const instances. How can we reduce the number of computations with a mutable variable? And why does it work?	
-	*/
-	vector<double> v(10000000, 3.2);
-	const B obj2(v);
-	for (int j = 0; j < 100; ++j) {
-		cout << obj2.sum() << "\n";
+	void print() const {
+		cout << a11 << " " << a12 << "\n" << a21 << " " << a22 << "\n";
 	}
-	/* 
-	- Does using a mutable variable violate const-correctness?
-	- What is the danger of using a lot of mutable variables?
-	- When is it ok to use a mutable variable and when is it not? From a design perspective
-	*/
-	
+
+private:
+	float a11;
+	float a12;
+	float a21;
+	float a22;
+};
+
+class LIFOMat {
+private:
+	size_t size; 
+	Matrix* head;
+	Matrix* tail;
+
+public:
+	LIFOMat(size_t n) : size(n), head(NULL), tail(new Matrix[n]) { head = tail; };
+
+	LIFOMat& operator+=(const Matrix& right) {
+		// check if stack if full
+		if ((head - tail) >= size) {
+			// stack is full
+			cout << "Stack is full\n";
+		} else {
+			*head = right;
+			head++;
+		}
+		return *this;
+	}
+
+	Matrix getNext() {
+		Matrix out;
+		if (head == tail) {
+			cout << "Stack is empty\n";
+		} else {
+			head--;
+			out = *head;
+		}
+		return out;
+	}
+
+	~LIFOMat() {
+		delete[] tail;
+	}
+};
+
+int main() {
+	Matrix M(1, 2, 3, 4);
+	Matrix M2(1,1,1,1);
+	Matrix M3(2,2,2,2);
+	M.print();
+
 	return 0;
 }
