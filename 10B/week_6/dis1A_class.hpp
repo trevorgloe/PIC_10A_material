@@ -23,6 +23,7 @@ private:
 	// this will point to an array of floats
 	float* ptr;
 	int* count;
+	void clean();
 };
 
 #endif

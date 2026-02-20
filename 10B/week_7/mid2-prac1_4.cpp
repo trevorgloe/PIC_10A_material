@@ -4,7 +4,7 @@ using namespace std;
 class C {
 public:
 	explicit C(int x) : i(x) {}
-	C(double) = delete;
+	// C(double) = delete;
 	// Convert C to int
 	operator int() const { return i; }
 private:
