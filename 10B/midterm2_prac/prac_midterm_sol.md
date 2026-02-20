@@ -133,7 +133,7 @@ int main() {
     cout << e.get() << " ";
     e.set(88);
     // 1
-    Page 4cout << e.get() << " ";
+    cout << e.get() << " ";
     e.set(888);
     cout << e.get() << " ";
     // 2
@@ -337,3 +337,85 @@ int main() {
 The code will build and output `3`. When the constructor is called, implicit casting will happen to change `3.14` to `3`. Then an instance of class `C` will be created (called `c2`) which has member variable `i=3`. Then, when we cast `c2` into an `int` via line 16, we just get the value of `i`, which is `3`. 
 
 A potential pitfall here is thinking that, because the constructor for `C` has the `explicit` keyword, we cannot have implicit casting of the arguments. This is not the case. Instead `explicit` prevents us from writing a line like `C c3 = 1;` because we are not "explicitly" invoking the constructor.
+
+### Question 3
+```cpp
+#include <iostream>
+using namespace std;
+
+class E {
+public:
+    E(int _i) : i(_i), counter(0) {}
+    int get() const { ++counter; return i; }
+    void set(int _i) { ++counter; i = _i; }
+    int printCount() const { return counter; }
+
+private:
+    int i;
+    mutable int counter;
+};
+
+int main() {
+    E e(8);
+    cout << e.get() << " ";
+    e.set(88);
+    // 1
+    cout << e.get() << " ";
+    e.set(888);
+    cout << e.get() << " ";
+    // 2
+    // 3
+    cout << e.printCount() << endl;
+    return 0;
+}
+```
+This code will build and output
+```
+8 88 888 5
+```
+This behaviro happens because on line 17, an instance of `E` is created and `counter` is set to 0. Then with each `get()` or `set()`, counter is incremented. A tricky part of this is the fact that `get()` is marked as `const` but does modify the value of `counter`. This is *only* allowed because `counter` is marked as `mutable`. 
+
+## Part 5 - The following copy assignments for string are not correct, explain why
+### Example 1
+```cpp
+string& string::operator=(const string& other) {
+    ptr = new char[other.siz + 1];
+    for (size_t i = 0; i <= other.siz; ++i) {
+        ptr[i] = other.ptr[i];
+    }
+    siz = other.siz;
+    return *this;
+}
+```
+No delete called. The assignment operator needs to get rid of the old data and replace it with the new data. Because `string::string` allocated memory on the heap, you need to call `delete` on `ptr` before reassigning it. By not doing this, the above code will cause a memory leak as memory is allocated on the heap but never deallocated. 
+
+
+### Example 2
+```cpp
+string& string::operator=(const string& other) {
+    delete[] ptr;
+    ptr = new char[other.siz + 1];
+    for (size_t i = 0; i <= other.siz; ++i) {
+        ptr[i] = other.ptr[i];
+    }
+    siz = other.siz;
+    return *this;
+}
+```
+The problem with this code is it's behavior on self-assigment. If we have `string::string s;` and write `s = s;`, we will get undefined behavior. This is because, on the first line when we call `delete[] ptr`, in the self-assignment case, we are also deleting `other.ptr`. This means when we later reassign `ptr`, we are also reassigning `other.ptr`, and it will be uninitialized. Now, in the loop when we write `ptr[i] = other.ptr[i]` we are using values from an uninitialized string, i.e. undefined behavior. The most efficient way to fix this is with the "copy-swap idiom", like below. 
+```cpp
+string& string::operator=(const string& other) {
+    // check for self-assignment
+    if (*this == other) {
+	return *this;  // nothing to be done in this case
+    }
+
+    string copy(other); // use copy constructor
+    std::swap(copy.ptr, this->ptr);
+    std::swap(copy.size, this->size);
+    // now copy has the old pointer and size, and will be deleted once the function call is over
+}
+```
+It is easy to say that this self-assignment is a silly case and we should not worry about it. To that I would direct you towards a quote by Stephen Cook - "Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning."
+
+That is to say, if there is any possible way to break your code, no matter how roundabout or string, someone using your code will always find a way to do it. 
