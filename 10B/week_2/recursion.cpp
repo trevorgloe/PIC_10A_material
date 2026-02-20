@@ -19,7 +19,18 @@ float f(float x) {
 	return 2*x*x - 3*x;
 }
 
+float g(float x) {
+	if (x < 0.3) {
+		return 1.0;
+	} else {
+		return 0.0;
+	}
+}
+
 float integral(function<float(float)> f, float upper, float lower, float eps) {
+	static int cnt = 0;
+	cnt++;
+	cout << cnt << "\n";
 	// integral using one region
 	float onereg = f(lower) * (upper - lower);
 
@@ -27,14 +38,14 @@ float integral(function<float(float)> f, float upper, float lower, float eps) {
 	float midpoint = (upper + lower) / 2.0;
 	float tworeg_1 = f(lower) * (midpoint - lower);
 	float tworeg_2 = f(midpoint) * (upper - midpoint);
-	cout << abs(tworeg_1 + tworeg_2 - onereg) << "\n";	
-	cout << "Upper=" << upper << " lower=" << lower << "\n";
+	// cout << abs(tworeg_1 + tworeg_2 - onereg) << "\n";	
+	// cout << "Upper=" << upper << " lower=" << lower << "\n";
 	if (abs(tworeg_1 + tworeg_2 - onereg) < eps) {
-		cout << "Successfully stopped\n";
+		// cout << "Successfully stopped\n";
 		return tworeg_1 + tworeg_2;
 	} else {
 		// recursion step
-		cout << "recursing...\n";
+		// cout << "recursing...\n";
 		return integral(f, upper, midpoint, eps) + integral(f, midpoint, lower, eps);
 	}
 }
@@ -88,8 +99,9 @@ int main() {
 	
 	float upper = 1.0;
 	float lower = 0.0;
-	float eps = 0.000001;
-	cout << integral(f, upper, lower, eps) << "\n";
+	float eps = 0.001;
+	float ans = integral(g, upper, lower, eps);
+	cout << "Integral = " <<  ans << "\n";
 
 	// Next problem: substrings
 	// We want a function that will return a vector of all the substrings of the given string
