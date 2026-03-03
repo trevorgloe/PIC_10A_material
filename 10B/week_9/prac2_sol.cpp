@@ -47,6 +47,10 @@ void reverse(LinkedList& LL) {
 
 int main() {
 	LinkedList LL {1,2,3,4,5,6,7};
+	for (auto n = LL.head; n; n=n->next) {
+		cout << n->data << " ";
+	}
+	cout << "\n";
 	// cout << LL.head << "\n";
 	reverse(LL);
 

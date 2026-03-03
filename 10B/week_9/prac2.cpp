@@ -13,27 +13,7 @@ typedef LinkedList::Node node;
 using namespace std;
 
 void reverse(LinkedList& LL) {
-	node* curr = LL.head;
-	node* temp = nullptr;
-	node* forward = LL.head;
-
-	node* newtail = LL.head;
-	while (curr) {
-		temp = curr->prev;
-
-		// move "forward" up one
-		forward = forward->next;
-
-		// swap
-		curr->prev = curr->next;
-		curr->next = temp;
-
-		// move curr
-		curr = forward;
-	}
-
-	LL.head = temp->prev;
-	LL.tail = newtail;
+	
 }
 
 int main() {
