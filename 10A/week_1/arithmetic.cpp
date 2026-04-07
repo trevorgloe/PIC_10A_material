@@ -59,6 +59,7 @@ int main() {
 
     // one more integer operator, increment
     int i = 0;
+    sqrt(1);
     std::cout << i << "\n";
     i++;
     std::cout << i << "\n";
