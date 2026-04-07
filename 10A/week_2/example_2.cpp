@@ -5,7 +5,8 @@ using namespace std;
 
 int main () {
     char ch = '2';
-    cout << boolalpha << ( ch == 2) << endl ;
+    int ch_int = static_cast<int>(ch);
+    cout << boolalpha << (ch_int == 2) << endl ;
     cout << ( 'B' - 'a' == 'F' - 'e') << endl ;
 
     return 0;

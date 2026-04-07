@@ -10,7 +10,7 @@
 
 int main() {
     const int A_CONSTANT;
-    cout << A_CONSTANT << "\n";
+    std::cout << A_CONSTANT << "\n";
     
     return 0;
 }
