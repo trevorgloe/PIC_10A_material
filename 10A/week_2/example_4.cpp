@@ -19,8 +19,9 @@ int main() {
     bool b1 = cos(testx1) == sin(testx1 + PI/2);
     bool b2 = abs(cos(testx2) - sin(testx2 + PI/2)) < 1e-4;
     // bool b2 = cos(testx2) == sin(testx2 + PI/2);
-    bool b3 = cos(testx3) == sin(testx3 + PI/2);
+    bool b3 = abs(cos(testx3) - sin(testx3 + PI/2)) < 1e-4;
     cout << b1 << " " << b2 << " " << b3 << "\n";
-
+    
+    bool b4 = abs(4*pow(cos(testx1), 3) - 3*cos(testx1) - cos(3*(testx1))) < 1e-4;
     return 0;
 }
