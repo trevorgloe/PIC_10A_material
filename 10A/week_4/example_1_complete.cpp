@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
     // define our const int
-    const int n = 3;
+    const int n = 4;
     
     // first do the first line which just has 1 star
     // make n-1 spaces

@@ -1,5 +1,6 @@
 // Lets make a program that defines a const int n and then draws a triangle of stars with 
 // that many lines
+// So if n = 3, the triangle should have 3 rows
 
 #include <iostream>
 

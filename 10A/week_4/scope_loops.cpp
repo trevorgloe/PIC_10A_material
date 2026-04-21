@@ -12,7 +12,7 @@ int main() {
         int i = 0;
     }
 
-    // cout << i << "\n"; the variable i is "out of scope"
+    // cout << i << "\n"; // the variable i is "out of scope"
     // once the curly braces close, anything that was created inside is destroyed
     // this is really useful for temporary variable, that you want to go away after you're done with them
     // and just because a variable is tempory, doesn't mean it can't have a lasting effect
@@ -20,7 +20,7 @@ int main() {
     {
         // we can just create a scope whenever we want with curly braces
         int i = 2;
-        // what is we add this? 
+        // what if we add this? 
         int j = 0; // we've redefined j in the local scope
         // this is called variable masking or variable shadowing
         // it can be a bit confusing to read, but it is actually very useful in some settings, because variable names could otherwise get really really complicated

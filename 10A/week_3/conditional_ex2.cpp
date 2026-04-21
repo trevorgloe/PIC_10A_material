@@ -13,4 +13,4 @@ int main () {
     if (s.find("AAA")) { cout << 3 << endl; }
 
     return 0;
- }
+}
