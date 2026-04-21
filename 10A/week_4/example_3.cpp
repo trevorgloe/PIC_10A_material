@@ -15,7 +15,7 @@ int main() {
         s.push_back(f);
         if (i%3==0) {
             char f = 'r';
-            s.pop_back();
+            s.pop_back(); // deletes the last char of s
             s.push_back(f);
         }
     }
