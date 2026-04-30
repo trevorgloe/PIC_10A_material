@@ -9,7 +9,9 @@ using namespace std;
 
 int main() {
     string s = "aonian";
-    for (int i=0; i<s.size(); i++) {
+    int j = 1;
+    // int a = j++;
+    for (int i=0; i<s.size(); ++i) {
         s.at(i) += i;
     }
     cout << s << "\n";
