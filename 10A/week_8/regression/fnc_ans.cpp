@@ -43,3 +43,7 @@ void read_into_vecs(string s, vector<float>& x, vector<float>& y) {
         y.push_back(stof(line.substr(space_idx+1, line.size()-space_idx-1)));
     }
 }
+
+vector<float> compute_regression(vector<vector<float>>& A, vector<float>& y) {
+    
+}
