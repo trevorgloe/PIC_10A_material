@@ -6,7 +6,7 @@
 using namespace std;
 
 vector<int> myplus(vector<int> v, vector<int> w) {
-	vector<int> out;
+	vector<int> out(v.size());
 	for (int i=0; i < v.size(); ++i) {
 		out[i] = v[i] + w[i];
 	}

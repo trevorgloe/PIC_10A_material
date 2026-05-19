@@ -6,8 +6,8 @@ using namespace std;
 
 float norm(vector<float>& v) {
 	float sum = 0.0;
-	for (float& v : v) {
-		sum += v;
+	for (float& x : v) {
+		sum += x;
 	}
 	return sum / v.size();
 }
