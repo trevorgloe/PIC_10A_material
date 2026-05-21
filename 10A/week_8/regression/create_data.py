@@ -1,7 +1,7 @@
 import numpy as np
 
 x = np.random.rand(400)
-y = np.exp(x - 0.2) / 8
+y = np.exp(x - 0.2) / 8 + 0.02*np.random.randn(400)
 
 with open("data.txt", "w") as f:
     for i in range(400):

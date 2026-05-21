@@ -27,6 +27,21 @@ vector<vector<float>> create_x_mat(vector<float> &x, int k) {
   return A;
 }
 
+void read_into_vecs(string s, vector<float> &x, vector<float> &y) {
+  ifstream file(s);
+  string line;
+  int idx;
+  while (getline(file, line)) {
+    idx = line.find(" ");
+    x.push_back(stof(line.substr(0, idx)));
+    y.push_back(stof(line.substr(idx)));
+  }
+}
+
+vector<float> mat_vec(vector<vector<float>> &A, vector<float> &x) {
+
+  return out;
+}
 vector<vector<float>> compute_AtA(vector<float> &x, int k) {
   vector<vector<float>> A = create_x_mat(x, k);
   vector<vector<float>> AtA;
