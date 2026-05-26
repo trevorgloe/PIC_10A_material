@@ -9,7 +9,14 @@ parameters for running the ODE solver.
 
 using namespace std;
 
-float f(float x, float t) { return x; }
+struct Params {
+  float start_time;
+  float delta_t;
+  float end_time;
+  float x0;
+};
+
+float f(float x, float t) { return x * x; }
 
 void solve_and_save(function<float(float, float)> f, Params p) {
   ofstream output;
@@ -26,4 +33,13 @@ void solve_and_save(function<float(float, float)> f, Params p) {
   }
 }
 
-int main() { return 0; }
+int main() {
+  Params p;
+  p.start_time = 0.0;
+  p.end_time = 1 / 1.1 + 1e-3;
+  p.delta_t = 1e-3;
+  p.x0 = 1.1;
+  solve_and_save(f, p);
+
+  return 0;
+}
