@@ -13,9 +13,13 @@ struct D {
   D() : name(), num(0) {}
 };
 
+int f(int& i) {
+
+}
 int main() {
   D d1;
   D d2("Trevor", 1);
-  D d3("Trevor");
+  D d3(name);
+
   return 0;
 }
