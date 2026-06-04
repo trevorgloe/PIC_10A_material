@@ -1,0 +1,1 @@
+The error is on line 13, with the call `f(r2)`. The function `f(int& a)` is meant to bind a regular `int` reference to the argument. In the case of `r2` the argument is a `const int&`. Binding a regular `int` reference to `r2` would violate const-correctness, so it is not allowed.

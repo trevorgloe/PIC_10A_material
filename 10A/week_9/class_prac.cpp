@@ -11,7 +11,7 @@ class P {
 
 public:
   P(string n, int i) : name(n), num(i), group("NA") {};
-  void assign_group(string g) { group = g; }
+  void assign_group(string a) { group = a; }
   void print() {
     cout << "Name: " << name << "\n"
          << "num: " << num << "\n"

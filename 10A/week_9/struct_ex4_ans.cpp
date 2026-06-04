@@ -22,6 +22,27 @@ private:
   int ID;
   vector<string> classes;
   vector<char> grades;
+  int one_gpa(size_t i) {
+    char grade = grades[i];
+    switch (grade) {
+    case 'A':
+      return 4;
+      break;
+    case 'B':
+      return 3;
+      break;
+    case 'C':
+      return 2;
+      break;
+    case 'D':
+      return 1;
+      break;
+    case 'F':
+      return 0;
+      break;
+    }
+    return -1;
+  }
 
 public:
   Student(string n, int i) : name(n), ID(i) {};
@@ -29,12 +50,20 @@ public:
       : name(n), ID(i), classes(c), grades(g) {};
   Student(string n, int i, vector<string> c)
       : name(n), ID(i), classes(c), grades(vector<char>(c.size(), 'N')) {};
+
+  float gpa() {
+    float tot = 0.0;
+    for (int i = 0; i < grades.size(); ++i) {
+      tot += one_gpa(i);
+    }
+    return tot / grades.size();
+  }
 };
 int main() {
   // this is what it should look like using the struct
   Student Trevor("Trevor", 1);
   vector<string> classes = {"Calc 1", "Phil 101", "History"};
-  vector<char> grades = {'C', 'A', 'B'};
+  vector<char> grades = {'A', 'A', 'B'};
   Student Trevor2("Trevor", 1, classes, grades);
   cout << Trevor2.gpa() << "\n";
   return 0;

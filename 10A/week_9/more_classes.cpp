@@ -27,7 +27,7 @@ public:
   }
   float get_pos() { return x; }
 };
-
+// PointMass::PointMass() : x(0), force(0), v(0), mass(0) {};
 class Simulation {
 private:
   vector<PointMass> points;

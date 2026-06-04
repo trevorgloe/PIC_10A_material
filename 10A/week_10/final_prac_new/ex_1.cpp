@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+#include <vector>
+// what is the output of the following code?
+
+using namespace std;
+
+int main() {
+  vector<string> sentence = {"This", "is", "the", "sentence"};
+  for (string &s : sentence) {
+    s.pop_back();
+  }
+  for (int i = 0; i < sentence.size(); ++i) {
+    string s = sentence[i];
+    s.pop_back();
+  }
+
+  for (int j = 0; j < sentence.size(); ++j) {
+    cout << sentence.at(j) << " ";
+  }
+  cout << "\n";
+}
