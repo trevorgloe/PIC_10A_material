@@ -1,0 +1,3 @@
+The issue here is that `p` may be a nullpointer when `get_mult()` is called. All the functions are public, meaning that they could be called by the user at any point. Ideally, a user would call the default constructor, then `init_p`, then `init_mult` before `get_mult`. But if a user were to call `get_mult` before `init_p`, then `p` would be a null pointer. Thus, trying to dereference `p` with `(*p)` would throw an error. 
+
+This can happen because `Int_Holder` can be initialized to make `p` a null pointer. If that were not possible (e.g. if there was no default constructor), then this potential error would not be an issue

@@ -3,7 +3,6 @@
 // what is the output of the following code?
 
 using namespace std;
-
 class Name {
 private:
   string first;
@@ -25,7 +24,6 @@ public:
     title = t;
   }
 };
-
 int main() {
   Name t("Trevor", "Loe");
   Name j("Joe", "Bob");
